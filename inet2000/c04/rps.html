@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <title>RPS Game</title>
+        <style type="text/css">
+        	body { 
+        		padding: 20px; 
+        		background-color: #ccc;
+        		font-family: arial;
+        	}
+        	#wrapper {
+        		width: 100%;
+        		border-radius: 5px;
+        		background-color: #fafafa;
+        	}
+        	#gameArea {
+        		padding: 10px;
+        	}
+        </style>
+	    <script>
+		    function rpsGame() {
+		    	var randomNumber = Math.floor(Math.random() * 3); // get a number between 0 and 2
+		    	var computerChoices = ['rock','paper','scissors']; // possible choices for computer
+		    	var computerChoice = computerChoices[randomNumber]; // use the random number select to pick a choice for the computer
+				var userChoice = prompt("Enter: rock, paper, scissors or quit"); // get answer from player
+				var results = '';
+				results = "Computer choice is <strong>: " + computerChoice + "</strong><br />";
+				results += "Your choice is <strong>: " + userChoice + "</strong><br />";
+				/*
+				SHALL WE BEGIN? YES WE SHALL :P
+				*/
+				//there has to be an easier, and less code intensive way to do this...
+				//oh yes there is hahahahahahaahahahahahahaha
+				
+				//initialize a variable for refrence
+				var userChoiceVal;
+				//use this to find which value corresponds to the user's input
+              //is there an easier way to do this?
+				for(i=0; i<=2; i++){
+          if(userChoice==computerChoices[i]){
+            userChoiceVal=i;
+          }
+				}
+				//is it a tie?
+				if(userChoiceVal-randomNumber==0){
+          results += "<strong> IT IS A TIE </strong><br />";
+				}
+				//is it a win?
+				if(userChoiceVal-randomNumber== -2 || userChoiceVal-randomNumber== 1){
+          results += "<strong> YOU WON </strong><br />";
+				}
+				//is it a lose
+				if(userChoiceVal-randomNumber== -1 || userChoiceVal-randomNumber== 2){
+          results += "<strong> YOU LOST </strong><br />";
+				}
+				//fall back to see if they didnt type a real command
+				/*
+           also could have used a fall back on all of these if i nested the ifs, but it is unnecessary to nest them in this case.
+				*/
+				if(!computerChoices.includes(userChoice)){
+          results += "<strong style='color:red;'> really? please enter use either 'rock', 'paper', or 'scissors' ONLY</strong><br />";
+				}
+				
+				//my original code. i rewrote it as above
+				/*
+				if(userChoice==computerChoice){
+          results += "<strong> IT IS A TIE </strong><br />";
+				}
+
+				if(userChoice == "rock"){
+          if(computerChoice == "paper"){
+            results += "<strong> YOU LOSE </strong><br />";
+          }
+          if(computerChoice == "scissors"){
+            results += "<strong> YOU WIN </strong><br />";
+          }
+				}
+				
+				if(userChoice == "paper"){
+          if(computerChoice == "rock"){
+            results += "<strong> YOU WIN </strong><br />";
+          }
+          if(computerChoice == "scissors"){
+            results += "<strong> YOU LOSE </strong><br />";
+          }
+				}
+				
+				if(userChoice == "scissors"){
+          if(computerChoice == "rock"){
+            results += "<strong> YOU LOSE </strong><br />";
+          }
+          if(computerChoice == "paper"){
+            results += "<strong> YOU WIN </strong><br />";
+          }
+				}
+				*/
+				
+				document.getElementById('gameOutput').innerHTML = results;
+		    }
+		</script>
+    </head>
+<body>
+	<div id="wrapper">
+		<div id="gameArea">
+			<h1>Rock,Paper, Scissors</h1>
+			<hr />
+			<button id="playButton" onclick="rpsGame();">Play Game</button> ( or just hit enter when you want to play )
+			<hr />
+			<div id="gameOutput"></div>
+    	</div>
+    </div>
+<script>
+	document.getElementById('playButton').focus();
+</script>
+</body>
+</html>
