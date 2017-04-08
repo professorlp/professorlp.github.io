@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf8">
+	<title>Blackjack</title>
+	<style type="text/css">
+		#cards img, #shuffled img { height: 50px; float: left; margin: 5px; }
+	</style>
+	     
+	<script src="http://code.jquery.com/jquery-3.1.1.slim.js"></script>
+	
+	<script>
+
+		
+		function getNewDeck() {
+			var deck = [];
+      var suits = ['clubs','spades','diamonds','hearts'];
+      var faces = ['ace',2,3,4,5,6,7,8,9,10,'jack','king','queen'];
+      var numeros = [0,2,3,4,5,6,7,8,9,10,11,10,10];
+			
+			/**
+			* build an array of card objects. A single card object should look like the following:
+			*	{suit: 'clubs', face: 'jack', value: 11}
+			*	or
+			*	{suit: 'hearts', face: 2, value: 2}
+			**/
+			
+			//var newCard={suit: 'hearts', face: 2, value: 2};
+			for(var i=0; i<=3; i++){
+			
+        for(var ii=0; ii<=12; ii++){
+          
+          /*if(faces[ii] == "ace"){
+          //change value to a function later?
+            deck.push({suit: suits[i], face: faces[ii], value: numeros[ii]});
+          }else{
+            
+          }*/
+          deck.push({suit: suits[i], face: faces[ii], value: numeros[ii]});
+        }  
+        console.log(suits[i] + "SUCESS");  
+			}
+			
+			
+			
+			console.log(deck);
+			
+			return deck;
+		}
+		
+		function shuffleDeck(deck) {
+			var newDeck = [];
+		
+			
+			/**
+			* Write the code to shuffle the deck.
+			* You'll use push and splice methods here
+			**/
+			
+/////////////////////////////		
+			for(i=0; i<52; i++){	
+
+        minimum = Math.ceil(0);
+        maximum = Math.floor(deck.length);
+        //console.log("max " + maximum);
+        var oldNum = Math.floor(Math.random() * (maximum - minimum)) + minimum;
+         //console.log("oldnum: " + oldNum);
+         
+               
+        
+        var returned = deck.splice(oldNum,1);
+        newDeck.push(returned);
+        
+			}
+////////////////////////////			
+			console.log(newDeck);
+			
+			return newDeck;
+		}
+		
+		function printDeck(deck, helperlol) {
+			var cards = '';
+			/**
+			* Create a string that represents all the cards in the deck.
+			* This will be a string of "<img ...><img ...>" tags that represent the cards in the deck
+			**/    
+      
+			//this creates the unsorted deck by pulling directly from the array created earlier
+			for(i=0; i<deck.length; i++){
+			
+        if(helperlol==1){
+          cards = cards+ '<img src="./cards/' + deck[i][0]["face"] + '_of_' + deck[i][0]["suit"] + '.png" > ';
+        }else{
+          cards = cards+ '<img src="./cards/' + deck[i]["face"] + '_of_' + deck[i]["suit"] + '.png" > ';
+			  }
+			  
+			}
+			
+			//console.log(cards);
+			
+			
+			return cards;
+		}
+		
+		function game() {
+			var deck = getNewDeck();
+			$('#cards').html(printDeck(deck, 0));
+			var ndeck = shuffleDeck(deck);
+			$('#shuffled').html(printDeck(ndeck, 1));
+		}
+		
+		
+	</script>
+</head>
+<body>
+	<h1>Blackjack</h1>
+	<div><button onclick="game();">Show Deck</button></div>
+	<h2>New Deck</h2>
+	<div id="cards">
+	</div>
+	<h2>Sorted Deck</h2>
+	<div id="shuffled">
+	</div>
+
+</body>
+</html>
