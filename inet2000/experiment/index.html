@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf8">
+	<title>Blackjack</title>
+	<style type="text/css">
+		body {background: url('table.png') #dadada no-repeat center top; }
+		#cards img, #shuffled img { height: 50px; float: left; margin: 5px; }
+		#dealer { width: 400px; height: 220px; margin: auto; text-align: center; }
+		#dealer img { width: 70px; }
+		#deck p { color: #fff; font-size: 50px; font-weight: bold; margin: 0; padding: 0; }
+		#deck img { width: 70px; }
+		#player { width: 400px; height: 140px; margin: auto; margin-top: 105px; text-align: center; }
+		#player-cards { height: 105px; }
+		#player img { width: 70px; }
+	</style>
+	     
+	<script src="http://code.jquery.com/jquery-3.1.1.slim.js"></script>
+	
+	<script>
+	//the buttons for "hit" and "stand" should not be available until a new game is started
+    $('#hit').hide();
+    
+		var deck, dealerCards, playerCards;
+		
+		function getNewDeck() {
+			//omg this might literally be the most terrible program ever
+			var deck = [];
+      var suits = ['clubs','spades','diamonds','hearts'];
+      var faces = ['ace',2,3,4,5,6,7,8,9,10,'jack','king','queen'];
+      //the values of the cards corresponding to above faces:
+      
+      //for week 11 all ACES will be valued at 11, no softs
+      var numeros = [11,2,3,4,5,6,7,8,9,10,10,10,10];
+						
+			//var newCard={suit: 'hearts', face: 2, value: 2};
+			for(var i=0; i<=3; i++){
+			
+        for(var ii=0; ii<=12; ii++){
+          
+          /*if(faces[ii] == "ace"){
+          //change value to a function later?
+            deck.push({suit: suits[i], face: faces[ii], value: numeros[ii]});
+          }else{
+          }*/
+          deck.push({suit: suits[i], face: faces[ii], value: numeros[ii]});
+        }  
+       // console.log(suits[i] + "SUCESS");  
+			}
+			
+			
+			
+			//console.log(deck);
+			
+			return deck;
+		}
+		
+		function shuffleDeck(deck) {
+			var newDeck = [];
+	
+			for(i=0; i<52; i++){	
+
+        minimum = Math.ceil(0);
+        maximum = Math.floor(deck.length);
+        //console.log("max " + maximum);
+        var oldNum = Math.floor(Math.random() * (maximum - minimum)) + minimum;
+         //console.log("oldnum: " + oldNum);
+         
+               
+        
+        var returned = deck.splice(oldNum,1);
+        newDeck.push(returned);
+        
+			}
+			
+			return newDeck;
+		}
+		
+		
+		function printCards(theCards,location) {
+			var cards = '';
+			
+			for(i=0; i<theCards.length; i++){
+			cards = cards + '<img src="./cards/' + theCards[i][0]["face"] + '_of_' + theCards[i][0]["suit"] + '.png" >';
+			}
+			// add code here that builds a string of images that represent the cards
+			
+			$('#' + location).html(cards);
+		}
+		
+		function getCard() {
+			return deck.pop();
+		}
+		
+		function displayWinner(winner) {
+			$('#deck').html('<p>' + winner + '</p>');
+		}
+		
+		function countCards(theHand) {
+		var handVal = 0;
+			for(i=0;i<theHand.length;i++){
+        handVal=handVal+theHand[i][0]['value'];
+			}
+			return(handVal);
+		}
+		
+		function stand() {
+			// if the player stands, then the dealer takes cards as long as the dealer's hand is < 17.
+			// Once hand is greater than 17, then game is over.  If the dealer is >= 17 and <= 21, then dealer wins.
+			// If dealer is > 21, then player wins.
+			      
+      //if dealer has <17 he hits
+      if(countCards(dealerCards)<=16){
+      
+        dealerCards.push(getCard());
+        
+        //redraw dealer's new hand
+        printCards(dealerCards, 'dealer-cards');
+        
+        //if the dealer is still not above 16, rerun this function until he is
+        stand();
+      }else{
+      
+      //if dealer busts show PLAYER as winner
+        if(countCards(dealerCards)>21 || countCards(playerCards)>countCards(dealerCards)){
+          displayWinner("PLAYER");
+        }else{   
+          //if dealer          //this decides if it is a push
+          if(countCards(playerCards)==countCards(dealerCards)){
+            displayWinner("PUSH");
+          }else{
+            displayWinner("DEALER");
+          }
+        }       
+      }
+		}
+		
+		function hit() {
+      
+      //the player hits a card
+      playerCards.push(getCard());
+      //redraw the new hand
+      printCards(playerCards, 'player-cards');
+      
+      //check to see if player busts
+      if(countCards(playerCards)>21){
+        displayWinner("DEALER");
+      }      
+		}
+		
+		function game() {
+			// init each player
+			dealerCards = [];
+			playerCards = [];
+			
+			// init deck
+			deck = shuffleDeck(getNewDeck());
+			
+			// show deck 
+			$('#deck').html('<img src="back.png" />');
+			
+			// clear any cards that dealer may have showing from last hand
+			printCards(dealerCards,'dealer-cards');
+
+			// deal first two cards to player
+			playerCards.push(getCard());
+			playerCards.push(getCard());
+						console.log(playerCards);
+						
+			//deal out to the dealer
+			dealerCards.push(getCard());
+			dealerCards.push(getCard());
+						console.log(dealerCards);
+						
+			// print hand
+			printCards(playerCards,'player-cards');
+			printCards(dealerCards,'dealer-cards');
+			//alert(countCards(playerCards));
+			
+		}
+	</script>
+</head>
+<body>
+	<div id="dealer">
+		<div id="deck"></div>
+		<div id="dealer-cards"></div>
+	</div>
+	<div id="player">
+		<div id="player-cards"></div>
+		<div id="buttons">
+		<!--
+		hit and stand should not be available until a new game has been started
+		-->
+			<button onclick="hit();" id="hit">Hit</button>
+			<button onclick="stand();" id="stand">Stand</button>
+			<button onclick="game();">New Game</button>
+		</div>
+	</div>
+</body>
+</html>

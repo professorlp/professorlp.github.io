@@ -1,0 +1,42 @@
+<html>
+<head>
+
+<style type="text/css">
+#canvas1{
+  border:1px solid #000000;
+}
+
+</style>
+
+
+
+</head>
+<body>
+
+
+<canvas id="canvas1" width="600" height="600"></canvas>
+<script>
+
+var c = document.getElementById("canvas1"); // get the canvas element
+var ctx = c.getContext("2d"); // assign canvas object to a variable
+// start drawing
+//this is literally the most clustered thing ever
+ctx.strokeStyle="#00DDEE";
+ctx.font="20px Verdana";
+
+ctx.beginPath();
+ctx.moveTo(30,50);
+ctx.lineTo(100,75);
+ctx.lineTo(100,25);
+ctx.lineTo(450,10)
+
+
+var grd=ctx.createLinearGradient(0,0,300,0);
+grd.addColorStop(0, "#EE22C6");
+grd.addColorStop(1,"#2262ED");
+
+ctx.fillStyle=grd;
+ctx.fill();
+ctx.strokeText("this was supposed to be an outline, now it is not",100,500);
+
+</script>
