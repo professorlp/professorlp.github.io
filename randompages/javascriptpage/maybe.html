@@ -1,0 +1,256 @@
+<html>
+<head>
+<title>music thing maybe</title>
+<script type="text/javascript">
+var a = 0;
+var i=0;
+var crick=1;
+xc="";
+var cursl=0;
+var audio = new Array();
+var audio2 = new Array();
+var audio3 = new Array();
+
+var xxx=0;
+var zzz=0;
+
+function startr(){
+var iT = setInterval(function(){changr()},10);
+}
+
+function changr(){
+a=a+10;
+document.getElementById("eh").innerHTML=a;
+}
+
+var z = new Array();
+var zv= new Array();
+
+function itr(mp3){
+z[i]=a;
+zv[i]=mp3;
+i=i+1;
+crick=crick+1;
+audio[xxx] = new Audio(mp3);
+audio[xxx].play();
+xxx=xxx+1;
+}
+
+function shr(){
+ //for(var ii=0;ii<z.length;ii++){
+  //xc=xc+"<br>"+z[ii];
+ //}
+ //document.getElementById("er").innerHTML=xc;
+ //xc="";
+
+ var iT2 = setInterval(function(){oro()},10);
+ 
+}
+function put_cursor_left(){
+//document.getElementById("curs").style.left=cursl;
+document.getElementById("curs").style.left=cursl+"px";
+document.getElementById("asdf").innerHTML=cursl;
+cursl=cursl+(1/100/.5);
+//window.innerWidth/5/60//100);
+}
+
+var ty=0;
+var uptownfunk=0;
+function oro(){
+//sorts through the array
+//cvx=ty; this keeps the value the same while this is running, just so it doesn't screw shit up.
+document.getElementById("uptown").innerHTML=ty;
+//////////
+put_cursor_left();
+//////////
+//you can have up to 10 at same time
+for(var five=-5;five<=5;five++){
+var upfunk=uptownfunk+five;
+  if(z[upfunk]==ty){
+   document.getElementById("funk").innerHTML=zv[upfunk];
+   uptownfunk=uptownfunk+1;
+   audio2[zzz] = new Audio(zv[upfunk]);
+audio2[zzz].play();
+zzz=zzz+1;
+  }
+}
+ty=ty+10;
+}
+
+document.addEventListener('keydown', function(event) {
+  document.getElementById("a"+event.keyCode).style.background="orange";
+    if(event.keyCode == 37) {
+        itr('./audio/newStuff.mp3');
+    }
+    else if(event.keyCode == 38) {
+        itr('./audio/dirtypaws.mp3');
+    }else{
+    itr("./audio/"+event.keyCode+".ogg");
+    }
+});
+
+document.addEventListener('keyup', function(event) {
+  document.getElementById("a"+event.keyCode).style.background="grey";
+
+    if(event.keyCode == 37) {
+    }
+    else if(event.keyCode == 38) {
+    }else{
+    }
+});
+
+// there will eventually be another array inside of the first to see which button was pressed
+</script>
+<style type="text/css">
+.disp{
+position:absolute;
+left:0px;
+top:400px;
+right:0px;
+height:200px;
+background-color:red;
+}
+.curs{
+position:absolute;
+left:0px;
+top:0px;
+bottom:0px;
+width:1px;
+background-color:black;
+}
+/***************/
+.keyboard{
+position:absolute;
+top:150px;
+left:75px
+}
+.button{
+position:absolute;
+text-align:center;
+width:50px;
+height:50px;
+background:grey;
+}
+.butt{
+position:absolute;
+text-align:center;
+width:90px;
+height:50px;
+background:grey;
+}
+.butr{
+position:absolute;
+text-align:center;
+width:40px;
+height:50px;
+background:grey;
+}
+.button:hover{
+background-color:orange;
+}
+.toprow{
+position:absolute;
+left:15px;
+}
+.row2{
+position:absolute;
+top:55px;
+left:30px;
+}
+.row3{
+position:absolute;
+top:110px;
+left:45px;
+}
+.eh{
+height:23px;
+}
+.tb{
+width:70px;
+}
+.cps{
+width:85px;
+}
+.lshft{
+width:100px;
+left:-105px;
+}
+</style>
+</head>
+<body>
+<div id="eh"></div>
+<div id="uptown"></div>
+<!--div id="er"></div-->
+<div id="funk"></div>
+<div id="asdf"></div>
+
+<button onclick="startr()" id=="startr">start recording</button>
+<br>
+<!--button onclick="itr()">add element</button-->
+<br>
+<button onclick="shr()">replay what you recorded</button>
+
+<div class="disp">
+ <div class="curs" id="curs"></div>
+</div>
+
+<div class="keyboard">
+  <div class="toprow">
+    <div id="a9" class="button tb" style="left:-75px;" onclick="itr()">TAB</div>
+    <div id="a81" class="button" onclick="itr('./audio/81.ogg')">Q</div>
+    <div id="a87" class="button" style="left:55px;" onclick="itr('./audio/87.ogg')">W</div>
+    <div id="a69" class="button" style="left:110px;" onclick="itr('./audio/69.ogg')">E</div>
+    <div id="a82" class="button" style="left:165px;" onclick="itr('./audio/82.ogg')">R</div>
+    <div id="a84" class="button" style="left:220px;" onclick="itr('./audio/84.ogg')">T</div>
+    <div id="a89" class="button" style="left:275px;" onclick="itr('./audio/89.ogg')">Y</div>
+    <div id="a85" class="button" style="left:330px;" onclick="itr('./audio/85.ogg')">U</div>
+    <div id="a73" class="button" style="left:385px;" onclick="itr('./audio/73.ogg')">I</div>
+    <div id="a79" class="button" style="left:440px;" onclick="itr('./audio/79.ogg')">O</div>
+    <div id="a80" class="button" style="left:495px;" onclick="itr('./audio/80.ogg')">P</div>
+    <div id="a219" class="button" style="left:550;" onclick="itr()">[</div>
+    <div id="a221" class="button" style="left:605;" onclick="itr()">]</div>
+    <div id="a220" class="button" style="left:660;" onclick="itr()">\</div>
+  </div>
+  <div class="row2">
+    <div id="a20" class="button cps" style="left:-90px;" onclick="itr()">CAPS</div>
+    <div id="a65" class="button" onclick="itr('./audio/65.ogg')">A</div>
+    <div id="a83" class="button" style="left:55px;" onclick="itr('./audio/83.ogg')">S</div>
+    <div id="a68" class="button" style="left:110px;" onclick="itr('./audio/68.ogg')">D</div>
+    <div id="a70" class="button" style="left:165px;" onclick="itr('./audio/70.ogg')">F</div>
+    <div id="a71" class="button" style="left:220px;" onclick="itr('./audio/71.ogg')">G</div>
+    <div id="a72" class="button" style="left:275px;" onclick="itr('./audio/72.ogg')">H</div>
+    <div id="a74" class="button" style="left:330px;" onclick="itr('./audio/74.ogg')">J</div>
+    <div id="a75" class="button" style="left:385px;" onclick="itr('./audio/75.ogg')">K</div>
+    <div id="a76" class="button" style="left:440px;" onclick="itr('./audio/76.ogg')">L</div>
+    <div id="a186" class="button" style="left:495px;" onclick="itr('./audio/76.ogg')">;</div>  
+    <div id="a222" class="button" style="left:550px;" onclick="itr('./audio/76.ogg')">'</div>
+    <div id="a13" class="butt" style="left:605px;" onclick="itr()">ENTER</div>
+
+  </div>
+ 
+  <div class="row3">
+    <div ID="a16" class="button lshft" onclick="itr()">shift</div>
+    <div id="a90" class="button" onclick="itr('./audio/90.ogg')">Z</div>
+    <div id="a88" class="button" style="left:55px;" onclick="itr('./audio/88.ogg')">X</div>
+    <div id="a67" class="button" style="left:110px;" onclick="itr('./audio/67.ogg')">C</div>
+    <div id="a86" class="button" style="left:165px;" onclick="itr('./audio/86.ogg')">V</div>
+    <div id="a66" class="button" style="left:220px;" onclick="itr('./audio/66.ogg')">B</div>
+    <div id="a78" class="button" style="left:275px;" onclick="itr('./audio/78.ogg')">N</div>
+    <div id="a77" class="button" style="left:330px;" onclick="itr('./audio/77.ogg')">M</div>
+    <div id="a188" class="button" style="left:385px;" onclick="itr('./audio/77.ogg')">,</div>
+    <div id="a190" class="button" style="left:440px;" onclick="itr('./audio/77.ogg')">.</div>
+    <div id="a191" class="button" style="left:495px;" onclick="itr('./audio/77.ogg')">/</div>
+   
+    <div id="a37" class="butr" style="left:550px;" onclick="itr('./audio/77.ogg')"><</div>
+    <div id="a38" class="eh butr" style="left:595px;" onclick="itr('./audio/77.ogg')">UP</div>
+    <div id="a40" class="eh butr" style="left:595px;top:27px;" onclick="itr('./audio/77.ogg')">DWN</div>
+    <div id="a39" class="butr" style="left:640px;" onclick="itr('./audio/77.ogg')">></div>
+  
+  </div>
+  
+  <div> A simple keyboard, recordin, and playback using arrays </div>
+
+
+</div>
+
+
