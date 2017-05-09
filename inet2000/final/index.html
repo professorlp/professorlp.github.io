@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf8">
+	<title>Sheridan Campus Room Locator</title>
+	<style type="text/css">
+		#map-container, #search-container { text-align: center; position: relative; }
+		#map { height: 100%; }
+		#pin-container { position: absolute; display: none; }
+		#caption { background: yellow; padding: 10px; color: #000; border-radius: 4px; position: absolute; }
+	</style>
+	<script type="text/javascript">
+	var newfuckingheight;
+	var newfuckingheight;
+		var rooms = {
+                "w166" : { "desc": "classroom", "x": 346, "y": 492 },
+                "w167" : { "desc": "classroom", "x": 341, "y": 494 },
+                "w168" : { "desc": "TRIO Services", "x": 328, "y": 500 },
+                "w168f" : { "desc": "Lilian Sager", "x": 316, "y": 500 },
+                "trcc014" : { "desc": "SGA & SCAN", "x": 444, "y": 388 },
+                "trcc106" : { "desc": "Campus Life & Housing", "x": 398, "y": 400 },
+                "gmb160" : { "desc": "Kooi Library", "x": 306, "y": 414 },
+                "gmb130" : { "desc": "I.T. Services", "x": 274, "y": 393 },
+                "gmb141" : { "desc": "Human Resources", "x": 241, "y": 400 },
+                "wca125" : { "desc": "back stage", "x": 239, "y": 581 },
+                "w145" : { "desc": "Executive Offices", "x": 324, "y": 581 },
+                "w159a" : { "desc": "Mark Thoney", "x": 363, "y": 557 },
+                "w158" : { "desc": "classroom", "x": 348, "y": 557 },
+                
+              };
+      console.log("logan is gay: " + rooms["w166"]["y"]);
+		//["W",166,"(classroom)",346,492]} // list of rooms that can be located
+
+		function resizer(){
+      newfuckingwidth = $('#map').width();
+      newfuckingheight = $('#map').height();
+		}
+		
+		// locate room
+		function lookup(room) {
+		
+		//console.log($('#map-container').width());
+		
+		//first i need to make sure all entries are in  the same format
+		room = room.toLowerCase();
+		room = room.replace("whitney","w");
+		
+		room = room.replace("griffith","gmb");
+		room = room.replace("griffith memorial","gmb");
+		room = room.replace("griffith memorial building","gmb");
+		
+		room = room.replace("whitney center for the arts","wca");
+		
+		room = room.replace("thorne-rider campus center","trcc");
+		room = room.replace("thorne-rider","trcc");
+		room = room.replace("thorne rider","trcc");
+		
+		room = room.replace(" ", "");
+		console.log(room);
+		
+		//make sure it is working
+		console.log(rooms[room]["desc"]);
+		
+	var newLeft= ((rooms[room]["x"]-0)/914)*(newfuckingwidth)-20;
+  var newTop= ((rooms[room]["y"]-0)/922)*(newfuckingheight)-70;
+  
+			// the following gets the top left corner location of the object specified.
+			var position = $('#map').offset(); // example: position = { left: 20, top: 45 }
+		//console.log(position);
+			var css = 'left: ' + (parseInt(position.left) + newLeft) + 'px; ' + 'top: ' + (parseInt(position.top) + newTop) + 'px;'
+			$('#pin-container').attr('style', css);
+			$('#caption').html(rooms[room]["desc"]);
+			$('#pin-container').show();
+			return false;
+		}
+		
+		function adjustMap() {
+			// get height of window in pixel so we can adjust the container
+			// and leave some space at the bottom of the page for the form.
+			//alert("fuck me");
+			
+			var windowHeight = $(window).height() - 100;
+			$('#map-container').height(windowHeight);
+			$('#pin-container').hide();
+			
+			newfuckingwidth = $('#map').width();
+      newfuckingheight = $('#map').height();
+		}
+	</script>
+</head>
+<body >
+	<div id="map-container">
+		<div id="pin-container" >
+			<img id="pin" src="pin.png" />
+			<div id="caption"></div>
+		</div>
+		<img id="map" src="map.jpg" />
+	</div>
+	<div id="search-container">
+		<form action="#">
+			<label>Enter room name or number:</label>
+			<input type="text" name="room" id="room">
+			<button onclick="lookup($('#room').val());">Locate</button>
+		</form>
+	</div>
+
+	<script src="slim.js"></script>
+
+	<script>	
+		// run when page first loads
+	  	$(document).ready( function(){
+	  		//Run function when browser  resize
+		  	$(window).resize( adjustMap );
+	  		adjustMap();
+	  	});
+	</script>	
+</body>
+</html>
