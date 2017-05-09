@@ -59,6 +59,9 @@
 		room = room.replace(" ", "");
 		console.log(room);
 		
+		if(!rooms[room]){
+		alert("sorry, room '" + room + "' was not found! :(");
+		}else{
 		//make sure it is working
 		console.log(rooms[room]["desc"]);
 		
@@ -72,7 +75,8 @@
 			$('#pin-container').attr('style', css);
 			$('#caption').html(rooms[room]["desc"]);
 			$('#pin-container').show();
-			return false;
+			//return false;
+			}
 		}
 		
 		function adjustMap() {
@@ -98,11 +102,11 @@
 		<img id="map" src="map.jpg" />
 	</div>
 	<div id="search-container">
-		<form action="#">
+		
 			<label>Enter room name or number:</label>
 			<input type="text" name="room" id="room">
 			<button onclick="lookup($('#room').val());">Locate</button>
-		</form>
+		
 	</div>
 
 	<script src="slim.js"></script>
