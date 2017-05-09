@@ -45,6 +45,7 @@
                 "eaton" : { "desc": "Eaton House", "x": 199, "y": 405 },
                 "kearny" : { "desc": "Kearny Hall", "x": 141, "y": 451 },
                 "griffen" : { "desc": "Griffen House", "x": 219, "y": 431 },
+                //g because of griffith memorial
                 "g" : { "desc": "Griffith House", "x": 196, "y": 439 },
                 "conner" : { "desc": "Conner hall", "x": 107, "y": 491 },
                 "mckeen" : { "desc": "McKeen House", "x": 185, "y": 477 },
@@ -75,7 +76,7 @@
 		
 		//instead of gmb this will become g so griffith house isnt overlooked
 		room = room.replace("griffith memorial building","g");
-		room = room.replace("griffith memorial","g");
+		room = room.replace("gmb","g");
 		
 		room = room.replace("griffith","g");
 		
@@ -157,6 +158,18 @@
 	  		//Run function when browser  resize
 		  	$(window).resize( adjustMap );
 	  		adjustMap();
+	  		
+	  		//bind enter to submit
+	  		$(document).keypress(function (e) {
+          var key = e.which;
+          if(key == 13)  // the enter key code
+            {
+              lookup($('#room').val());
+              //clear the text box for new input  
+              $('#room').val("");
+            }
+         });  
+         
 	  	});
 	</script>	
 </body>
