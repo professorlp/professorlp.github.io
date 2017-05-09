@@ -17,16 +17,43 @@
                 "w166" : { "desc": "classroom", "x": 346, "y": 492 },
                 "w167" : { "desc": "classroom", "x": 341, "y": 494 },
                 "w168" : { "desc": "TRIO Services", "x": 328, "y": 500 },
-                "w168f" : { "desc": "Lilian Sager", "x": 316, "y": 500 },
+                "w168f" : { "desc": "Lillian Sager", "x": 316, "y": 500 },
                 "trcc014" : { "desc": "SGA & SCAN", "x": 444, "y": 388 },
                 "trcc106" : { "desc": "Campus Life & Housing", "x": 398, "y": 400 },
-                "gmb160" : { "desc": "Kooi Library", "x": 306, "y": 414 },
-                "gmb130" : { "desc": "I.T. Services", "x": 274, "y": 393 },
-                "gmb141" : { "desc": "Human Resources", "x": 241, "y": 400 },
+                "trcc008" : { "desc": "Activities room", "x": 390, "y": 430 },
+                "trcc002" : { "desc": "conference", "x": 401, "y": 402 },
+                "sva" : { "desc": "Student  Veterans Association", "x": 400, "y": 400 },
+                "g160" : { "desc": "Kooi Library", "x": 306, "y": 414 },
+                "g130" : { "desc": "I.T. Services", "x": 274, "y": 393 },
+                "g141" : { "desc": "Human Resources", "x": 241, "y": 400 },
                 "wca125" : { "desc": "back stage", "x": 239, "y": 581 },
                 "w145" : { "desc": "Executive Offices", "x": 324, "y": 581 },
                 "w159a" : { "desc": "Mark Thoney", "x": 363, "y": 557 },
                 "w158" : { "desc": "classroom", "x": 348, "y": 557 },
+                "w176" : { "desc": "massage classroom", "x": 418, "y": 572 },
+                "sc119" : { "desc": "Science Lab", "x": 573, "y": 616 },
+                "sc122" : { "desc": "Science Lab", "x": 591, "y": 608 },
+                "sc107" : { "desc": "classroom", "x": 544, "y": 586 },
+                "ag201" : { "desc": "classroom", "x": 642, "y": 525 },
+                //residence halls:
+                "founders" : { "desc": "Founders Hall", "x": 98, "y": 301 },
+                "south" : { "desc": "South Hall", "x": 360, "y": 298 },
+                "dief" : { "desc": "Diefenderfer House", "x": 147, "y": 351 },
+                "davis" : { "desc": "Davis House", "x": 134, "y": 380 },
+                "crook" : { "desc": "Crook Hall", "x": 102, "y": 426 },
+                "blume" : { "desc": "Blume House", "x": 137, "y": 406 },
+                "eaton" : { "desc": "Eaton House", "x": 199, "y": 405 },
+                "kearny" : { "desc": "Kearny Hall", "x": 141, "y": 451 },
+                "griffen" : { "desc": "Griffen House", "x": 219, "y": 431 },
+                "g" : { "desc": "Griffith House", "x": 196, "y": 439 },
+                "conner" : { "desc": "Conner hall", "x": 107, "y": 491 },
+                "mckeen" : { "desc": "McKeen House", "x": 185, "y": 477 },
+                "hanson" : { "desc": "Hanson House", "x": 220, "y": 474 },
+                "hayes" : { "desc": "Hayes Loft", "x": 64, "y": 517 },
+                "williams" : { "desc": "Williams Loft", "x": 32, "y": 554 },
+                "stevens" : { "desc": "Stevens Loft", "x": 67, "y": 542 },
+                "fitzgerald" : { "desc": "Fitzgerald Loft", "x": 112, "y": 531 },
+                "thorn" : { "desc": "Thorn House", "x": 145, "y": 522 },
                 
               };
       console.log("logan is gay: " + rooms["w166"]["y"]);
@@ -46,9 +73,11 @@
 		room = room.toLowerCase();
 		room = room.replace("whitney","w");
 		
-		room = room.replace("griffith","gmb");
-		room = room.replace("griffith memorial","gmb");
-		room = room.replace("griffith memorial building","gmb");
+		//instead of gmb this will become g so griffith house isnt overlooked
+		room = room.replace("griffith memorial building","g");
+		room = room.replace("griffith memorial","g");
+		
+		room = room.replace("griffith","g");
 		
 		room = room.replace("whitney center for the arts","wca");
 		
@@ -56,7 +85,18 @@
 		room = room.replace("thorne-rider","trcc");
 		room = room.replace("thorne rider","trcc");
 		
-		room = room.replace(" ", "");
+		room = room.replace("science center","sc");
+		
+		room = room.replace("mars agriculture center","ag");
+		room = room.replace("agriculture center","ag");
+		room = room.replace("mars ag center","ag");
+		room = room.replace("ag center","ag");	
+		
+		room = room.replace("hall","");
+		room = room.replace("house","");
+		
+		room = room.replace(/-/g,"");
+		room = room.replace(/ /g, "");
 		console.log(room);
 		
 		if(!rooms[room]){
