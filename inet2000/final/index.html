@@ -57,7 +57,7 @@
                 "thorn" : { "desc": "Thorn House", "x": 145, "y": 522 },
                 
               };
-      console.log("logan is gay: " + rooms["w166"]["y"]);
+      //console.log("test1: " + rooms["w166"]["y"]);
 		//["W",166,"(classroom)",346,492]} // list of rooms that can be located
 
 		function resizer(){
@@ -108,6 +108,9 @@
 		//make sure it is working
 		console.log(rooms[room]["desc"]);
 		
+		//here we find the percent X the original pin location would be compared to the original image ...
+		//then apply it to the scaled image.
+		//IT WAS TERRIBLE GETTING THIS TO WORK
 	var newLeft= ((rooms[room]["x"]-0)/914)*(newfuckingwidth)-20;
   var newTop= ((rooms[room]["y"]-0)/922)*(newfuckingheight)-70;
   
@@ -125,7 +128,7 @@
 		function adjustMap() {
 			// get height of window in pixel so we can adjust the container
 			// and leave some space at the bottom of the page for the form.
-			//alert("fuck me");
+			//
 			
 			var windowHeight = $(window).height() - 100;
 			$('#map-container').height(windowHeight);
