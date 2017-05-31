@@ -1,0 +1,247 @@
+<html>
+<head>
+  <style type="text/css">
+    body{
+      padding:0px;
+      margin:0px;
+    }
+    #newtxt{
+      position:relative;
+      top:10px;
+	  padding:10px 10px 10px 10px;
+	  margin:0px 10px 10px 10px;
+	  background-color:lightgray;
+	  border-radius:5px;
+	  height:38%;
+	  overflow-y:scroll;
+	  /*height:100px;*/
+    }
+	li{
+		font-size:15pt;
+	}
+	#controller{
+		margins:0px;
+		background-color:powderblue;
+		text-align:center;
+	}
+	#menuer{
+		color:blue;
+	}
+  </style>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script>
+  
+    $(document).ready(function(){
+    	$("#menuer").click(function(){
+       	 $("#menu").toggle("slow");
+    	});
+	});
+  
+  //morse object, because objects are better than arrays
+  var rev={
+  "a" : {morse : ".- "},
+  "b" : {morse : "-... "},
+  "c" : {morse : "-.-. "},
+  "d" : {morse : "-.. "},
+  "e" : {morse : ". "},
+  "f" : {morse : "..-. "},
+  "g" : {morse : "--. "},
+  "h" : {morse : ".... "},
+  "i" : {morse : ".. "},
+  "j" : {morse : ".--- "}, 
+  "k" : {morse : "-.- "},
+  "l" : {morse : ".-.. "},
+  "m" : {morse : "-- "},
+  "n" : {morse : "-. "},
+  "o" : {morse : "--- "},
+  "p" : {morse : ".--. "},
+  "q" : {morse : "--.- "},
+  "r" : {morse : ".-. "},
+  "s" : {morse : "... "},
+  "t" : {morse : "- "},
+  "u" : {morse : "..- "},
+  "v" : {morse : "...- "},
+  "w" : {morse : ".-- "},
+  "x" : {morse : "-..- "},
+  "y" : {morse : "-.-- "},
+  "z" : {morse : "--.. "},
+  //numbers
+  "0" : {morse : "----- "},
+  "1" : {morse : ".---- "},
+  "2" : {morse : "..--- "},
+  "3" : {morse : "...-- "},
+  "4" : {morse : "....- "},
+  "5" : {morse : "..... "},
+  "6" : {morse : "-.... "},
+  "7" : {morse : "--... "},
+  "8" : {morse : "---.. "},
+  "9" : {morse : "----. "},
+  
+  "," : {morse : "" },
+  "." : {morse : "" },
+  ";" : {morse : "" },
+  ":" : {morse : "" },
+  "'" : {morse: "" },
+  " " : {morse : " <span style='color:blue;'>,</span> "},
+  //numbers
+  };
+
+	//if i could set up this database thatd be nice
+  var ver = { 
+  ".-" : {morse : "a"},
+  "-..." : {morse : "b"},
+  "-.-." : {morse : "c"},
+  "-.." : {morse : "d"},
+  "." : {morse : "e"},
+  "..-." : {morse : "f"},
+  "--." : {morse : "g"},
+  "...." : {morse : "h"},
+  ".." : {morse : "i"},
+  ".---" : {morse : "j"}, 
+  "-.-" : {morse : "k"},
+  ".-.." : {morse : "l"},
+  "--" : {morse : "m"},
+  "-." : {morse : "n"},
+  "---" : {morse : "o"},
+  ".--." : {morse : "p"},
+  "--.-" : {morse : "q"},
+  ".-." : {morse : "r"},
+  "..." : {morse : "s"},
+  "-" : {morse : "t"},
+  "..-" : {morse : "u"},
+  "...-" : {morse : "v"},
+  ".--" : {morse : "w"},
+  "-..-" : {morse : "x"},
+  "-.--" : {morse : "y"},
+  "--.." : {morse : "z"},
+  "-----" : {morse : "0"},
+  ".----" : {morse : "1"},
+  "..---" : {morse : "2"},
+  "...--" : {morse : "3"},
+  "....-" : {morse : "4"},
+  "....." : {morse : "5"},
+  "-...." : {morse : "6"},
+  "--..." : {morse : "7"},
+  "---.." : {morse : "8"},
+  "----." : {morse : "9"},
+  
+  };
+
+var final = "";
+
+//we are going to make a morrse code converter, because why not?
+  function convertin(txt, way){
+    final = "";
+  //console.log(way);
+if(way=="eng"){
+	txt = txt.replace("\n", ",");
+	var ntxt = txt.split(", ");
+	console.log(ntxt);
+	var ntxt2 = [];
+	var leng = ntxt.length;
+	
+	//split it
+	for(i=0;i<ntxt.length;i++){
+		ntxt2.push(ntxt[i].split(" "));
+		//implement this to maybe fix the enter error
+		//     /[\s,]+/
+	}
+	
+	console.log(ntxt2);
+	//this is rideiculous, how could i do it better
+	for(ii=0;ii<ntxt2.length;ii++){
+		for(iii=0;iii<ntxt2[ii].length;iii++){
+			if(ntxt2[ii][iii]==""){
+				//nothing
+				final += " ";
+				console.log("death detected");
+			}else{
+				//console.log(ntxt2[ii][iii])
+				//console.log(ver[ntxt2[ii][iii]]);
+				if(!ntxt2[ii]){
+					console.log("sfas");
+				}
+				console. log(ntxt2[ii][iii]);
+					final += ver[ntxt2[ii][iii]].morse;
+
+			}
+		}
+	}
+	//now it is split into letters by ntxt2[word#][letter#]
+	
+}else{
+  txt =txt.toLowerCase();
+ // console.log(txt);
+ // txt = txt.split(" ").join(" ");
+ // console.log(txt);
+  
+    for(i=0;i<txt.length;i++){
+     // console.log(txt[i]);
+      //rev = txt; //+= txt[i];
+	  if(!rev[txt[i]]){
+	  	console.log("error encountered on loop: " + i + "; likely cause is enter key");
+		//try something:
+		final += ", ";
+	  }else{
+	  	//console.log(txt);	  
+	  	final += rev[txt[i]].morse;
+	  	//console.log(rev[txt[i]].morse);
+	  }
+    }
+/*
+	var xx = Math.floor((Math.random() * 500) + 1);
+	var yy = Math.floor((Math.random() * 500) + 1);
+   	rev = rev + '<div style="position:absolute;top:' + xx +';left:' + yy + ';color:' + colr + ';">' + txt + '</div>';
+      document.getElementById("newtxt").innerHTML=rev;
+*/
+}
+	document.getElementById("newtxt").innerHTML=final;
+  }
+
+  </script>
+</head>
+<body>
+
+<div>
+	<div id="controller">
+		<h1>Morse converter <br><span id="menuer">[hide/show help]</span></h1>
+	</div>
+	<div id="menu">
+	<h2>English to Morse</h2>
+		<ul>
+			<li>Type a sentence as you normally would</li>
+			<li>Omit punctuation</li>
+			<li>try not to use the enter key</li>
+			<!-- for some reason english to morse can accept enter and be fine, but the other way around just dies -->
+		</ul>
+	<h2>Morse to English</h2>
+		<ul>
+			<li>Use "." for dots</li>
+			<li>Use "-" for dashes</li>
+			<li>Seperate words using a comma followed by a space <b> example: </b> --. ..<span style="color:blue;">,</span> ... -. ..</li>
+			<li>Seperate letters (sets of dots and dashes) with spaces <b>example:</b> .... . .-.. .-.. --- <span style="color:blue;">,</span> .-- --- .-. .-.. -.. </li>
+			<li style="color:red;">DO NOT USE ENTER KEY! it will break the program</li>
+		</ul>
+	</div>
+
+</div>
+
+
+<!--input type="text" id="inpt1" onfocus="" style="height:50px;" value="type text to convert here" /-->
+<textarea id="inpt1" style="height:100px;width:100%;">
+</textarea>
+
+
+
+<!--input type="text" id="inpt2" style="height:50px;" value="blue" /-->
+
+
+<button id="sub1" onclick="convertin(inpt1.value, 'mor')" value="convert" style="height:50px;"> convert to morse </button>
+<button id="sub2" onclick="convertin(inpt1.value, 'eng')" value="convert" style="height:50px;"> convert to english </button>
+
+
+<div id="newtxt" style="font-size:25pt;">
+.-- . .-. . , -. --- , ... - .-. .- -. --. . .-. ... , - --- , .-.. --- ...- . , -.-- --- ..- , -.- -. --- .-- , - .... . , .-. ..- .-.. . ... , .- -. -.. , ... --- , -.. --- , .. , .- , ..-. ..- .-.. .-.. , -.-. --- -- -- .. - -- . -. - ... , .-- .... .- - , .. -- , - .... .. -. -.- .. -. --. , --- ..-. , -.-- --- ..- , .-- --- ..- .-.. -.. -. - , --. . - , - .... .. ... , ..-. .-. --- -- , .- -. -.-- , --- - .... . .-. , --. ..- -.-- , , .. , .--- ..- ... - , .-- .- -. -. .- , - . .-.. .-.. , -.-- --- ..- , .... --- .-- , .. -- , ..-. . . .-.. .. -. --. , --. --- - - .- , -- .- -.- . , -.-- --- ..- , ..- -. -.. . .-. ... - .- -. -.. , , -. . ...- . .-. , --. --- -. -. .- , --. .. ...- . , -.-- --- ..- , ..- .--. , -. . ...- . .-. , --. --- -. -. .- , .-.. . - , -.-- --- ..- , -.. --- .-- -. , -. . ...- . .-. , --. --- -. -. .- , .-. ..- -. , .- .-. --- ..- -. -.. , .- -. -.. , -.. . ... . .-. - , -.-- --- ..- , -. . ...- . .-. , --. --- -. -. .- , -- .- -.- . , -.-- --- ..- , -.-. .-. -.-- , -. . ...- . .-. , --. --- -. -. .- , ... .- -.-- , --. --- --- -.. -... -.-- . , -. . ...- . .-. , --. --- -. -. .- , - . .-.. .-.. , .- , .-.. .. . , .- -. -.. , .... ..- .-. - , -.-- --- ..- , , .-- . ...- . , -.- -. --- .-- -. , . .- -.-. .... , --- - .... . .-. , ..-. --- .-. , ... --- , .-.. --- -. --. , -.-- --- ..- .-. , .... . .- .-. - ... , -... . . -. , .- -.-. .... .. -. --. , -... ..- - , -.-- --- ..- .-. . , - --- --- , ... .... -.-- , - --- , ... .- -.-- , .. - , .. -. ... .. -.. . , .-- . , -... --- - .... , -.- -. --- .-- , .-- .... .- - ... , -... . . -. , --. --- .. -. --. , --- -. , .-- . , -.- -. --- .-- , - .... . , --. .- -- . , .- -. -.. , .-- . .-. . , --. --- -. -. .- , .--. .-.. .- -.-- , .. - , , .- -. -.. , .. ..-. , -.-- --- ..- , .- ... -.- , -- . , .... --- .-- , .. -- , ..-. . . .-.. .. -. --. , -.. --- -. - , - . .-.. .-.. , -- . , -.-- --- ..- .-. . , - --- --- , -... .-.. .. -. -.. , - --- , ... . . , , -. . ...- . .-. , --. --- -. -. .- , --. .. ...- . , -.-- --- ..- , ..- .--. , -. . ...- . .-. , --. --- -. -. .- , .-.. . - , -.-- --- ..- , -.. --- .-- -. , -. . ...- . .-. , --. --- -. -. .- , .-. ..- -. , .- .-. --- ..- -. -.. , .- -. -.. , -.. . ... . .-. - , -.-- --- ..- , -. . ...- . .-. , --. --- -. -. .- , -- .- -.- . , -.-- --- ..- , -.-. .-. -.-- , -. . ...- . .-. , --. --- -. -. .- , ... .- -.-- , --. --- --- -.. -... -.-- . , -. . ...- . .-. , --. --- -. -. .- , - . .-.. .-.. , .- , .-.. .. . , .- -. -.. , .... ..- .-. - , -.-- --- ..- , , -. . ...- . .-. , --. --- -. -. .- , --. .. ...- . , -.-- --- ..- , ..- .--. , -. . ...- . .-. , --. --- -. -. .- , .-.. . - , -.-- --- ..- , -.. --- .-- -. , -. . ...- . .-. , --. --- -. -. .- , .-. ..- -. , .- .-. --- ..- -. -.. , .- -. -.. , -.. . ... . .-. - , -.-- --- ..- , -. . ...- . .-. , --. --- -. -. .- , -- .- -.- . , -.-- --- ..- , -.-. .-. -.-- , -. . ...- . .-. , --. --- -. -. .- , ... .- -.-- , --. --- --- -.. -... -.-- . , -. . ...- . .-. , --. --- -. -. .- , - . .-.. .-.. , .- , .-.. .. . , .- -. -.. , .... ..- .-. - , -.-- --- ..- , , , --- --- .... , --. .. ...- . , -.-- --- ..- , ..- .--. , , , --- --- .... , --. .. ...- . , -.-- --- ..- , ..- .--. , , -. . ...- . .-. , --. --- -. -. .- , --. .. ...- . , -. . ...- . .-. , --. --- -. -. .- , --. .. ...- . , , --. .. ...- . , -.-- --- ..- , ..- .--. , , -. . ...- . .-. , --. --- -. -. .- , --. .. ...- . , -. . ...- . .-. , --. --- -. -. .- , --. .. ...- . , , --. .. ...- . , -.-- --- ..- , ..- .--. , , , .-- . ...- . , -.- -. --- .-- -. , . .- -.-. .... , --- - .... . .-. , ..-. --- .-. , ... --- , .-.. --- -. --. , -.-- --- ..- .-. , .... . .- .-. - ... , -... . . -. , .- -.-. .... .. -. --. , -... ..- - , -.-- --- ..- .-. . , - --- --- , ... .... -.-- , - --- , ... .- -.-- , .. - , .. -. ... .. -.. . , .-- . , -... --- - .... , -.- -. --- .-- , .-- .... .- - ... , -... . . -. , --. --- .. -. --. , --- -. , .-- . , -.- -. --- .-- , - .... . , --. .- -- . , .- -. -.. , .-- . .-. . , --. --- -. -. .- , .--. .-.. .- -.-- , .. - , , .. , .--- ..- ... - , .-- .- -. -. .- , - . .-.. .-.. , -.-- --- ..- , .... --- .-- , .. -- , ..-. . . .-.. .. -. --. , --. --- - - .- , -- .- -.- . , -.-- --- ..- , ..- -. -.. . .-. ... - .- -. -.. , , -. . ...- . .-. , --. --- -. -. .- , --. .. ...- . , -.-- --- ..- , ..- .--. , -. . ...- . .-. , --. --- -. -. .- , .-.. . - , -.-- --- ..- , -.. --- .-- -. , -. . ...- . .-. , --. --- -. -. .- , .-. ..- -. , .- .-. --- ..- -. -.. , .- -. -.. , -.. . ... . .-. - , -.-- --- ..- , -. . ...- . .-. , --. --- -. -. .- , -- .- -.- . , -.-- --- ..- , -.-. .-. -.-- , -. . ...- . .-. , --. --- -. -. .- , ... .- -.-- , --. --- --- -.. -... -.-- . , -. . ...- . .-. , --. --- -. -. .- , - . .-.. .-.. , .- , .-.. .. . , .- -. -.. , .... ..- .-. - , -.-- --- ..- , , -. . ...- . .-. , --. --- -. -. .- , --. .. ...- . , -.-- --- ..- , ..- .--. , -. . ...- . .-. , --. --- -. -. .- , .-.. . - , -.-- --- ..- , -.. --- .-- -. , -. . ...- . .-. , --. --- -. -. .- , .-. ..- -. , .- .-. --- ..- -. -.. , .- -. -.. , -.. . ... . .-. - , -.-- --- ..- , -. . ...- . .-. , --. --- -. -. .- , -- .- -.- . , -.-- --- ..- , -.-. .-. -.-- , -. . ...- . .-. , --. --- -. -. .- , ... .- -.-- , --. --- --- -.. -... -.-- . , -. . ...- . .-. , --. --- -. -. .- , - . .-.. .-.. , .- , .-.. .. . , .- -. -.. , .... ..- .-. - , -.-- --- ..- , , -. . ...- . .-. , --. --- -. -. .- , --. .. ...- . , -.-- --- ..- , ..- .--. , -. . ...- . .-. , --. --- -. -. .- , .-.. . - , -.-- --- ..- , -.. --- .-- -. , -. . ...- . .-. , --. --- -. -. .- , .-. ..- -. , .- .-. --- ..- -. -.. , .- -. -.. , -.. . ... . .-. - , -.-- --- ..- , -. . ...- . .-. , --. --- -. -. .- , -- .- -.- . , -.-- --- ..- , -.-. .-. -.-- , -. . ...- . .-. , --. --- -. -. .- , ... .- -.-- , --. --- --- -.. -... -.-- . , -. . ...- . .-. , --. --- -. -. .- , - . .-.. .-.. , .- , .-.. .. . , .- -. -.. , .... ..- .-. - , -.-- --- ..-
+</div>

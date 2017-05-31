@@ -10,63 +10,63 @@
 		#caption { background: yellow; padding: 10px; color: #000; border-radius: 4px; position: absolute; }
 	</style>
 	<script type="text/javascript">
-	var newfuckingheight;
-	var newfuckingheight;
+	var newwidth;
+	var newheight;
 	//room array
 		var rooms = {
-                "w166" : { "desc": "classroom", "x": 346, "y": 492 },
-                "w167" : { "desc": "classroom", "x": 341, "y": 494 },
-                "w168" : { "desc": "TRIO Services", "x": 328, "y": 500 },
-                "w168f" : { "desc": "Lillian Sager", "x": 316, "y": 500 },
-                "trcc014" : { "desc": "SGA & SCAN", "x": 444, "y": 388 },
-                "trcc106" : { "desc": "Campus Life & Housing", "x": 398, "y": 400 },
-                "trcc008" : { "desc": "Activities room", "x": 390, "y": 430 },
-                "trcc002" : { "desc": "conference", "x": 401, "y": 402 },
-                "sva" : { "desc": "Student  Veterans Association", "x": 400, "y": 400 },
-                "g160" : { "desc": "Kooi Library", "x": 306, "y": 414 },
-                "g130" : { "desc": "I.T. Services", "x": 274, "y": 393 },
-                "g141" : { "desc": "Human Resources", "x": 241, "y": 400 },
-                "wca125" : { "desc": "back stage", "x": 239, "y": 581 },
-                "w145" : { "desc": "Executive Offices", "x": 324, "y": 581 },
-                "w159a" : { "desc": "Mark Thoney", "x": 363, "y": 557 },
-                "w158" : { "desc": "classroom", "x": 348, "y": 557 },
-                "w176" : { "desc": "massage classroom", "x": 418, "y": 572 },
-                "sc119" : { "desc": "Science Lab", "x": 573, "y": 616 },
-                "sc122" : { "desc": "Science Lab", "x": 591, "y": 608 },
-                "sc107" : { "desc": "classroom", "x": 544, "y": 586 },
-                "ag201" : { "desc": "classroom", "x": 642, "y": 525 },
+                "w166" : { "desc": "Whitney-166 classroom", "x": 346, "y": 492, "name": "w166" },
+                "w167" : { "desc": "Whitney-167 classroom", "x": 341, "y": 494, "name": "w167" },
+                "w168" : { "desc": "Whitney-168 TRIO Services", "x": 328, "y": 500, "name": "w168" },
+                "w168f" : { "desc": "Whitney-168f Lillian Sager", "x": 316, "y": 500, "name": "w168f" },
+                "trcc014" : { "desc": "trcc-014 SGA & SCAN", "x": 444, "y": 388, "name": "trcc014" },
+                "trcc106" : { "desc": "trcc-106 Campus Life & Housing", "x": 398, "y": 400, "name": "trcc106" },
+                "trcc008" : { "desc": "trcc-008 Activities room", "x": 390, "y": 430, "name": "trcc008" },
+                "trcc002" : { "desc": "trcc-002 conference", "x": 401, "y": 402, "name": "trcc002" },
+                "sva" : { "desc": "Student  Veterans Association", "x": 400, "y": 400, "name": "sva" },
+                "g160" : { "desc": "GMB-160 Kooi Library", "x": 306, "y": 414, "name": "g160" },
+                "g130" : { "desc": "GMB-130 I.T. Services", "x": 274, "y": 393, "name": "g130" },
+                "g141" : { "desc": "GMB-141 Human Resources", "x": 241, "y": 400, "name": "g141" },
+                "wca125" : { "desc": "WCA-125 back stage", "x": 239, "y": 581, "name": "wca125" },
+                "w145" : { "desc": "Whitney-145 Executive Offices", "x": 324, "y": 581, "name": "w145" },
+                "w159a" : { "desc": "Whitney-159a Mark Thoney", "x": 363, "y": 557, "name": "w159a" },
+                "w158" : { "desc": "Whitney-158 classroom", "x": 348, "y": 557, "name": "w158" },
+                "w176" : { "desc": "Whitney-176 massage classroom", "x": 418, "y": 572, "name": "w176" },
+                "sc119" : { "desc": "Science center-119 Science Lab", "x": 573, "y": 616, "name": "sc119" },
+                "sc122" : { "desc": "Science center-122 Science Lab", "x": 591, "y": 608, "name": "sc122" },
+                "sc107" : { "desc": "Science Center-107 classroom", "x": 544, "y": 586, "name": "sc107" },
+                "ag201" : { "desc": "AG-201 classroom", "x": 642, "y": 525, "name": "ag201" },
                 //residence halls:
-                "founders" : { "desc": "Founders Hall", "x": 98, "y": 301 },
-                "south" : { "desc": "South Hall", "x": 360, "y": 298 },
-                "dief" : { "desc": "Diefenderfer House", "x": 147, "y": 351 },
-                "davis" : { "desc": "Davis House", "x": 134, "y": 380 },
-                "crook" : { "desc": "Crook Hall", "x": 102, "y": 426 },
-                "blume" : { "desc": "Blume House", "x": 137, "y": 406 },
-                "eaton" : { "desc": "Eaton House", "x": 199, "y": 405 },
-                "kearny" : { "desc": "Kearny Hall", "x": 141, "y": 451 },
-                "griffen" : { "desc": "Griffen House", "x": 219, "y": 431 },
+                "founders" : { "desc": "Founders Hall", "x": 98, "y": 301, "name": "founders" },
+                "south" : { "desc": "South Hall", "x": 360, "y": 298, "name": "south" },
+                "dief" : { "desc": "Diefenderfer House", "x": 147, "y": 351, "name": "dief" },
+                "davis" : { "desc": "Davis House", "x": 134, "y": 380, "name": "davis" },
+                "crook" : { "desc": "Crook Hall", "x": 102, "y": 426, "name": "crook" },
+                "blume" : { "desc": "Blume House", "x": 137, "y": 406, "name": "blume" },
+                "eaton" : { "desc": "Eaton House", "x": 199, "y": 405, "name": "eaton" },
+                "kearny" : { "desc": "Kearny Hall", "x": 141, "y": 451, "name": "kearny" },
+                "griffen" : { "desc": "Griffen House", "x": 219, "y": 431, "name": "griffen" },
                 //g because of griffith memorial
-                "g" : { "desc": "Griffith House", "x": 196, "y": 439 },
-                "conner" : { "desc": "Conner hall", "x": 107, "y": 491 },
-                "mckeen" : { "desc": "McKeen House", "x": 185, "y": 477 },
-                "hanson" : { "desc": "Hanson House", "x": 220, "y": 474 },
-                "hayes" : { "desc": "Hayes Loft", "x": 64, "y": 517 },
-                "williams" : { "desc": "Williams Loft", "x": 32, "y": 554 },
-                "stevens" : { "desc": "Stevens Loft", "x": 67, "y": 542 },
-                "fitzgerald" : { "desc": "Fitzgerald Loft", "x": 112, "y": 531 },
-                "thorn" : { "desc": "Thorn House", "x": 145, "y": 522 },
+                "g" : { "desc": "Griffith House", "x": 196, "y": 439, "name": "g" },
+                "conner" : { "desc": "Conner hall", "x": 107, "y": 491, "name": "conner" },
+                "mckeen" : { "desc": "McKeen House", "x": 185, "y": 477, "name": "mckeen" },
+                "hanson" : { "desc": "Hanson House", "x": 220, "y": 474, "name": "hanson" },
+                "hayes" : { "desc": "Hayes Loft", "x": 64, "y": 517, "name": "hayes" },
+                "williams" : { "desc": "Williams Loft", "x": 32, "y": 554, "name": "williams" },
+                "stevens" : { "desc": "Stevens Loft", "x": 67, "y": 542, "name": "stevens" },
+                "fitzgerald" : { "desc": "Fitzgerald Loft", "x": 112, "y": 531, "name": "fitzgerald" },
+                "thorn" : { "desc": "Thorn House", "x": 145, "y": 522, "name": "thorn" },
                 
               };
       //console.log("test1: " + rooms["w166"]["y"]);
 		//["W",166,"(classroom)",346,492]} // list of rooms that can be located
 
 		function resizer(){
-      newfuckingwidth = $('#map').width();
-      newfuckingheight = $('#map').height();
+      newwidth = $('#map').width();
+      newheight = $('#map').height();
 		}
 		
 		// locate room
-		function lookup(room) {
+	function lookup(room) {
 		
 		//console.log($('#map-container').width());
 		
@@ -101,30 +101,30 @@
 		//make it so it deletes ALL spaces and -
 		room = room.replace(/-/g,"");
 		room = room.replace(/ /g, "");
-		console.log(room);
+      console.log(room);
 		
 		if(!rooms[room]){
-		alert("sorry, room '" + room + "' was not found! :(");
+      alert("sorry, room '" + room + "' was not found! :(");
 		}else{
-		//make sure it is working
-		console.log(rooms[room]["desc"]);
+      //make sure it is working
+      console.log(rooms[room]["desc"]);
 		
-		//here we find the percent X the original pin location would be compared to the original image ...
-		//then apply it to the scaled image.
-		//IT WAS TERRIBLE GETTING THIS TO WORK
-	var newLeft= ((rooms[room]["x"]-0)/914)*(newfuckingwidth)-20;
-  var newTop= ((rooms[room]["y"]-0)/922)*(newfuckingheight)-70;
-  
+      //here we find the percent X the original pin location would be compared to the original image ...
+      //then apply it to the scaled image.
+      //IT WAS TERRIBLE GETTING THIS TO WORK
+      var newLeft= ((rooms[room]["x"]-0)/914)*(newwidth)-20;
+      var newTop= ((rooms[room]["y"]-0)/922)*(newheight)-72;
+      console.log(newLeft + " h " + newTop);
 			// the following gets the top left corner location of the object specified.
-			var position = $('#map').offset(); // example: position = { left: 20, top: 45 }
-		//console.log(position);
-			var css = 'left: ' + (parseInt(position.left) + newLeft) + 'px; ' + 'top: ' + (parseInt(position.top) + newTop) + 'px;'
-			$('#pin-container').attr('style', css);
-			$('#caption').html(rooms[room]["desc"]);
-			$('#pin-container').show();
-			//return false;
-			}
+      var position = $('#map').offset(); // example: position = { left: 20, top: 45 }
+      //console.log(position);
+      var css = 'left: ' + (parseInt(position.left) + newLeft) + 'px; ' + 'top: ' + (parseInt(position.top) + newTop) + 'px;'
+      $('#pin-container').attr('style', css);
+      $('#caption').html(rooms[room]["desc"]);
+      $('#pin-container').show();
+      //return false;
 		}
+	}
 		
 		function adjustMap() {
 			// get height of window in pixel so we can adjust the container
@@ -135,8 +135,8 @@
 			$('#map-container').height(windowHeight);
 			$('#pin-container').hide();
 			
-			newfuckingwidth = $('#map').width();
-      newfuckingheight = $('#map').height();
+			newwidth = $('#map').width();
+      newheight = $('#map').height();
 		}
 	</script>
 </head>
@@ -171,12 +171,74 @@
           var key = e.which;
           if(key == 13)  // the enter key code
             {
-              lookup($('#room').val());
-              //clear the text box for new input  
-              $('#room').val("");
+              if($('#room').val()==""){
+                console.log(rooms);
+              }else{
+                lookup($('#room').val());
+                //clear the text box for new input  
+                $('#room').val("");
+              }
             }
          });  
          
+        $('#map').mousedown(function(e){
+          //get the mouseX and moouseY as is in #map
+          console.log(e)
+          console.log(e.offsetX + " " +e.offsetY);
+          
+          //this is a name value!!! why didnt i know this before, UGH
+          var xx;
+          //create a mouse object
+          rooms["mouse"] = {
+            "desc": "mouseposition", 
+            "x": (e.offsetX*914)/newwidth, 
+            "y": (e.offsetY*922)/newheight 
+          };
+          
+          //eventually this will look through the objects, find the
+          //  closest x and y values, and activate lookup for that room
+          
+          //["room_name","hypotenuse_length"]
+          var hyplen = [];
+          for(xx in rooms){
+          //initiate x, y
+            var x, y;
+          //pythagorean theorem
+          
+          //retrieve x leg length
+            if(e.offsetX>rooms[xx].x){
+              x = (e.offsetX)-(rooms[xx].x);
+            }else{
+              x = (rooms[xx].x)-(e.offsetX);
+            }
+          //retireve y leg length
+            if(e.offsetY>rooms[xx].y){
+              y = (e.offsetY)-(rooms[xx].y);
+            }else{
+              y = (rooms[xx].y)-(e.offsetY);
+            }    
+          //calculate distance between mouse and room
+            var hl = Math.sqrt((x^2)+(y^2));
+        //only push if it is first run
+        
+        if(hyplen.length>0){
+            if(hl>hyplen[0][1]){
+              //do nothing, its not closer
+            }else{
+              // overwrite, it is closer
+              hyplen[0]=[xx, hl, x, y];
+            }          
+        }else{
+            hyplen.push([xx, hl, x, y]);
+        }
+            //console.log(x + " " + y);
+            //lookup("mouse");
+          }
+          console.log(hyplen[0][1]);
+          lookup(hyplen[0][0]);
+          
+        });
+        
 	  	});
 	</script>	
 </body>
