@@ -224,8 +224,13 @@
 		h = d.getHours(); // => 9
 		m = d.getMinutes(); // =>  30
 		s = d.getSeconds(); // => 51
-
 		
+		freedom(d,h,m,s);
+		lunch(d,h,m,s);
+	}
+	
+	
+	function freedom(d,h,m,s){	
 		if(h<fiveO){
 			h=17-h-1;
 			m=60-m;
@@ -235,6 +240,18 @@
 		}
 		
 		document.getElementById("timer").innerHTML= h+ " hours " + m + " minutes " + s + " seconds until freedom!";
+	}
+	
+	function lunch(d,h,m,s){	
+		if(h<12){
+			h=12-h-1;
+			m=60-m;
+			s=60-s;
+		}else{
+
+		}
+		
+		document.getElementById("timer2").innerHTML= h+ " hours " + m + " minutes " + s + " seconds until lunch!";
 	}
 	
 	
@@ -253,17 +270,17 @@
 		</div>
 		
 		<div class="content1 all contentgrad shadow">
-			<div class="contenttitle">Tiger</div>
+			<div class="contenttitle">freedom timer</div>
 			<p id="timer" style="font-size:70pt;">
-f
+freedom
 			</p>
 		</div>
 		
 		<div class="content2 all">
-			<div class="contenttitle">Content2</div>
-			<div>
-Transparent with default website background displayed
-			</div>
+			<div class="contenttitle">lunch timer</div>
+			<p id="timer2" style="font-size:70pt;">
+			lunch
+			</p>
 			<!--div class="blurb1 blurb all"> </div>
 			<div class="blurb2 blurb all"> </div>
 			<div class="blurb3 blurb all"> </div-->
