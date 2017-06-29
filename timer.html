@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Page Title</title>
+	
+	<style type="Text/css">
+	body{
+		background:url(img/eelk.png) no-repeat center fixed;
+		background-size:cover;
+		color:white;
+		
+		/*-webkit-filter: blur(5px);
+ 		-moz-filter: blur(5px);
+  		-o-filter: blur(5px);
+  		-ms-filter: blur(5px);
+  		filter: blur(5px);*/
+	}
+	div{
+		padding:10px;
+	}
+		.container{
+			display:block;
+			position:absolute;
+			left:0px;
+			right:0px;
+			top:0px;
+			bottom:0px;
+			}
+		.headbar{
+			position:fixed;
+			left:0px;
+			right:0px;
+			top:0px;
+			height:50px;
+			padding:0px 10px 0px 10px;
+			text-align:center;
+			background: white; /* For browsers that do not support gradients */
+  			background: -webkit-linear-gradient(-141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%); /* For Safari 5.1 to 6.0 */
+ 			background: -o-linear-gradient(-141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%); /* For Opera 11.1 to 12.0 */
+ 			background: -moz-linear-gradient(-141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%); /* For Firefox 3.6 to 15 */
+ 			background: linear-gradient(-141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%); /* Standard syntax */
+			z-index: 100;
+			
+			/*box-shadow: 0px 1px 1px grey;*/
+
+		}
+		.shadow{
+			box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+		}
+		.centertitle{
+			font-size:25px;
+			line-height:50px;
+			text-align:center;
+		}
+		.all{
+			border-radius:0px;
+			height:500px;
+			text-align:center;
+			margin-left:-10px;
+			margin-right:-10px;
+		}
+		.contentgrad{
+			/*background: white; 
+  			background: -webkit-linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%); 
+ 			background: -o-linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%); 
+ 			background: -moz-linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%); 
+ 			background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%); */
+			background-color: gray;
+			/*rgb(236,53,81);*/
+		}
+		.content1{
+			position:relative;
+			
+			/*background-color:##2cb5e8;*/
+			background:url(img/blackred.jpg) no-repeat center; /* add fixed for cool effect*/
+			background-size:cover;
+			text-align:center;
+			/*4b931b8b3822b5b52643044aeab8c3eb-details.jpg);*/
+			top:60px;
+			margin-top:0px;
+			margin-bottom:0px;
+			
+			/*animation-name: backg;
+   			animation-duration: 5s;
+    		animation-iteration-count: infinite;*/
+		}
+		
+
+				.content2{
+			position:relative;
+			margin-left:0px;
+			margin-right:0px;
+			top:60px;
+			margin-top:0px;
+			margin-bottom:0px;
+		}
+				.contentend{
+			height:100%;
+			position:relative;
+			margin-left:0px;
+			margin-right:0px;
+			top:60px;
+			margin-top:0px;
+			margin-bottom:0px;
+		}
+		.content3{
+			position:relative;
+			
+			/*background-color:##2cb5e8;*/
+			background:url(img/city.png) no-repeat center; /* add fixed for cool effect*/
+			background-size:cover;
+			text-align:center;
+			/*4b931b8b3822b5b52643044aeab8c3eb-details.jpg);*/
+			top:60px;
+			margin-top:0px;
+			margin-bottom:0px;
+		}
+		.content4{
+			position:relative;
+			height:100%;
+			/*background-color:##2cb5e8;*/
+			background:url(img/circles.png) no-repeat center fixed; /* add fixed for cool effect*/
+			background-size:cover;
+			/*contain;*/
+			background-origin: content-box;
+			text-align:center;
+			/*4b931b8b3822b5b52643044aeab8c3eb-details.jpg);*/
+			top:60px;
+			margin-top:0px;
+			margin-bottom:0px;
+		}
+		.content5{
+			position:relative;
+
+			/*background-color:##2cb5e8;*/
+			background:url(img/circles.png) no-repeat center; /* add fixed for cool effect*/
+			background-size:cover;
+			text-align:center;
+			/*4b931b8b3822b5b52643044aeab8c3eb-details.jpg);*/
+			top:60px;
+			margin-top:0px;
+			margin-bottom:0px;
+		}
+		.contenttitle{
+			position:relative;
+			margin-left:0px;
+			margin-right:0px;
+			margin-top:0px;
+			margin-bottom:0px;
+			height:30px;
+			font-size:30px;
+		}
+		.blurb{
+			height:480px;
+			width:480px;
+			top:10px;
+			bottom:10px;
+		}
+		.blurb1{
+			background: url(img/black-linen-2.jpg);
+		}
+		.blurb2{
+		position:relative;
+			top:-500px;
+			left:510px;
+			background: url(img/black-linen-2.jpg);
+		}
+		.blurb3{
+			position:relative;
+			top:-1000px;
+			left:1020px;
+			background: url(img/black-linen-2.jpg);
+		}
+		
+		/* below is the animation code*/
+		@keyframes colorchange {
+  		 0%   {border: 1px solid red;}
+  		 25%  {border: 1px solid yellow;}
+   		 50%  {border: 1px solid blue;}
+   		 75% {border: 1px solid green;}
+		 100%{border:1px solid red;}
+		}
+		@keyframes backg {
+  		 0%   {background:url(img/fluid.jpg) no-repeat center;background-size:cover;}
+  		 25%  {background:url(img/elk.png) no-repeat center;background-size:cover;}
+   		 50%  {background:url(img/rainbow.png) no-repeat center;background-size:cover;}
+   		 75% {background:url(img/minwall.jpg) no-repeat center;background-size:cover;}
+		 100%{background:url(img/fluid.jpg) no-repeat center;background-size:cover;}
+		}
+		/* below is the initial styles for the line. */
+		.linep{
+			border:1px solid red;
+			/*animation-name: colorchange;
+   			animation-duration: 4s;
+    		animation-iteration-count: infinite;*/
+		}
+		.bgvid{
+			position:fixed;
+			margin-left:-10px;
+			margin-right:-10px;
+			height:100%;
+			left:0px;
+			top:0px;
+			bottom:0px;
+			right:0px;
+		}
+		
+	</style>
+	<script>
+	var d;
+	var h;
+	var m;
+	var s;
+	var finalT;
+	
+	var fiveO= 17;
+	var xx = setInterval(timero, 500);
+
+	function timero(){
+		
+		d = new Date(); // for now
+		h = d.getHours(); // => 9
+		m = d.getMinutes(); // =>  30
+		s = d.getSeconds(); // => 51
+
+		
+		if(h<fiveO){
+			h=17-h-1;
+			m=60-m;
+			s=60-s;
+		}else{
+
+		}
+		
+		document.getElementById("timer").innerHTML= h+ " hours " + m + " minutes " + s + " seconds until freedom!";
+	}
+	
+	
+	</script>
+	
+</head>
+<body onload="">
+
+	<div class="container">
+
+
+		<div class="headbar shadow">
+		
+			<span class="centertitle">pointless website</span>
+		
+		</div>
+		
+		<div class="content1 all contentgrad shadow">
+			<div class="contenttitle">Tiger</div>
+			<div id="timer" style="font-size:70pt;">
+f
+			</div>
+		</div>
+		
+		<div class="content2 all">
+			<div class="contenttitle">Content2</div>
+			<div>
+Transparent with default website background displayed
+			</div>
+			<!--div class="blurb1 blurb all"> </div>
+			<div class="blurb2 blurb all"> </div>
+			<div class="blurb3 blurb all"> </div-->
+			
+		
+		</div>
+		
+		<div class="content3 all contentgrad shadow">
+		<div class="contenttitle">city</div>
+			<div>
+				the city was where we were birthed because science
+			</div>
+		</div>
+		
+		<div class="content4 all">
+		<div class="contenttitle">circles</div>
+			<div>
+				beautiful scrolly circle background
+			</div>
+		</div>
+		
+		<div class="content1 all shadow">
+		
+		</div>
+		
+		<div class="contentend all">
+		<h2 style="font-size:50pt;">That's it. you made it.</h2>
+		<p>this is the end of the page</p>
+		</div>
+		<!------------------------------>
+		
+		
+	</div>
+	
+	<div style="position:absolute;left:0px;top:0px;right:0px;bottom:0px;">
+
+	</div>
+	<!--div class="bgvid" style="z-index:-99">
+  <iframe frameborder="0" height="100%" width="100%" 
+    src="https://youtube.com/embed/?autoplay=1&controls=0&showinfo=0&autohide=1">
+  </iframe>
+</div>	
+<!--
+T0letOLaw08 -- papito cabrito
+lX44CAz-JhU -- the wolf
+
+-->
+	
+</body>
+</html>
