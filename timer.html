@@ -249,7 +249,10 @@
 	}
 	
 	function wager(wage1){
-		wage=wage1 / 60 / 60; // dollars/second			
+		wage=wage1 / 60 / 60; // dollars/second
+		var dm = 1 / wage / 60;
+		document.getElementById("infostuffz").innerHTML= '<ol><li>what are your wage stats?</li><li>cents per second: '+(wage*100)+'</li><li>it takes you '+dm+' minutes to earna dollar</li></ol>';
+
 	}
 	
 	function wagerun(d,h,m,s){
@@ -294,8 +297,11 @@ freedom
 		
 		<div class="content3 all contentgrad shadow">
 		<div class="contenttitle">Enter how much you make an hour: <input type="text" id="wage" name="wage" /><button onclick="wager(document.getElementById('wage').value)" value="send">send</button></button></div>
-			<p id="counter">
+			<p id="counter" style="font-size:70pt">
 				how much have you made today?
+			</p>
+			<p id="infostuffz">
+			infostuffz
 			</p>
 		</div>
 		
