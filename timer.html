@@ -230,7 +230,7 @@
 	}
 	
 	function freedom(d,h,m,s){
-		m=60-m;
+		m=60-m-1;
 		s=60-s;	
 		if(h<fiveO){
 			h=17-h-1;
@@ -241,7 +241,7 @@
 	}
 	
 	function lunch(d,h,m,s){
-		m=60-m;
+		m=60-m-1;
 		s=60-s;	
 		if(h<12){
 			h=12-h-1;
@@ -256,10 +256,23 @@
 	}
 	
 	function wagerun(d,h,m,s){
-		
+		//lunch?
+		var killwage = 0;
+		if(h==12){
+			//alert("lunchio");
+			var secss = ((h-12)*3600)+(m*60)+s;
+			killwage=secss*wage;
+		}else{
+			if(h>=13){
+				killwage=3600*wage;
+			}else{
+				//absolutely nothing, no wages must be removed
+			}
+		}
 		//figure out seconds since 8'oclock
 		var secs = ((h-8)*3600)+(m*60)+s;	
 		finalwage = secs*wage;
+		finalwage=finalwage-killwage;
 		finalwage = finalwage.toFixed(2);
 		document.getElementById("counter").innerHTML= "$"+ finalwage + " made today";
 		
