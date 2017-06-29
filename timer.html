@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Page Title</title>
+	<title>test stuff?</title>
 	
 	<style type="Text/css">
 	body{
@@ -209,26 +209,22 @@
 		
 	</style>
 	<script>
-	var d;
-	var h;
-	var m;
-	var s;
 	var finalT;
-	
+	var wage=0; 
 	var fiveO= 17;
-	var xx = setInterval(timero, 500);
+	var xx = setInterval(timero, 1000);
 
-	function timero(){
-		
-		d = new Date(); // for now
-		h = d.getHours(); // => 9
-		m = d.getMinutes(); // =>  30
-		s = d.getSeconds(); // => 51
-		
+	function timero(){	
+		var d = new Date(); // for now
+		var h = d.getHours(); // => 9
+		var m = d.getMinutes(); // =>  30
+		var s = d.getSeconds(); // => 51
 		freedom(d,h,m,s);
 		lunch(d,h,m,s);
+		if(wage!=0){
+			wagerun(d,h,m,s);
+		}
 	}
-	
 	
 	function freedom(d,h,m,s){	
 		if(h<fiveO){
@@ -236,9 +232,8 @@
 			m=60-m;
 			s=60-s;
 		}else{
-
+			h=24-h+17;
 		}
-		
 		document.getElementById("timer").innerHTML= h+ " hours " + m + " minutes " + s + " seconds until freedom!";
 	}
 	
@@ -248,13 +243,24 @@
 			m=60-m;
 			s=60-s;
 		}else{
-
+			h=24-h+12;
 		}
-		
 		document.getElementById("timer2").innerHTML= h+ " hours " + m + " minutes " + s + " seconds until lunch!";
 	}
 	
+	function wager(wage1){
+		wage=wage1 / 60 / 60; // dollars/second			
+	}
 	
+	function wagerun(d,h,m,s){
+		
+		//figure out seconds since 8'oclock
+		var secs = ((h-8)*3600)+(m*60)+s;	
+		var finalwage = secs*wage;
+		finalwage = finalwage.toFixed(2);
+		document.getElementById("counter").innerHTML= "$"+ finalwage + " made today";
+
+	}
 	</script>
 	
 </head>
@@ -284,15 +290,13 @@ freedom
 			<!--div class="blurb1 blurb all"> </div>
 			<div class="blurb2 blurb all"> </div>
 			<div class="blurb3 blurb all"> </div-->
-			
-		
 		</div>
 		
 		<div class="content3 all contentgrad shadow">
-		<div class="contenttitle">city</div>
-			<div>
-				the city was where we were birthed because science
-			</div>
+		<div class="contenttitle">Enter how much you make an hour: <input type="text" id="wage" name="wage" /><button onclick="wager(document.getElementById('wage').value)" value="send">send</button></button></div>
+			<p id="counter">
+				how much have you made today?
+			</p>
 		</div>
 		
 		<div class="content4 all">
