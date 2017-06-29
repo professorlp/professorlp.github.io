@@ -158,7 +158,7 @@
 			top:10px;
 			bottom:10px;
 		}
-		.blurb1{
+		#infostuffz{
 			background: url(img/black-linen-2.jpg);
 		}
 		.blurb2{
@@ -250,8 +250,9 @@
 	
 	function wager(wage1){
 		wage=wage1 / 60 / 60; // dollars/second
+		var wage2 = wage*100;
 		var dm = 1 / wage / 60;
-		document.getElementById("infostuffz").innerHTML= '<ol><li>what are your wage stats?</li><li>cents per second: '+(wage*100)+'</li><li>it takes you '+dm+' minutes to earna dollar</li></ol>';
+		document.getElementById("infostuffz").innerHTML= '<ul><li>what are your wage stats?</li><li>cents per second: '+wage2.toFixed(4)+'</li><li>it takes you '+dm.toFixed(4)+' minutes to earna dollar</li></ul>';
 
 	}
 	
