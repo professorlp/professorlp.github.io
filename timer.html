@@ -5,7 +5,7 @@
 	
 	<style type="Text/css">
 	body{
-		background:url(img/eelk.png) no-repeat center fixed;
+		background:url(img/minwall.jpg) no-repeat center fixed;
 		background-size:cover;
 		color:white;
 		
@@ -212,6 +212,8 @@
 	var finalT;
 	var wage=0; 
 	var fiveO= 17;
+	var noods = 0;
+	var finalwage = 0;
 	var xx = setInterval(timero, 1000);
 
 	function timero(){	
@@ -250,19 +252,25 @@
 	
 	function wager(wage1){
 		wage=wage1 / 60 / 60; // dollars/second
-		var wage2 = wage*100;
-		var dm = 1 / wage / 60;
-		document.getElementById("infostuffz").innerHTML= '<ul><li>what are your wage stats?</li><li>cents per second: '+wage2.toFixed(4)+'</li><li>it takes you '+dm.toFixed(4)+' minutes to earna dollar</li></ul>';
-
 	}
 	
 	function wagerun(d,h,m,s){
 		
 		//figure out seconds since 8'oclock
 		var secs = ((h-8)*3600)+(m*60)+s;	
-		var finalwage = secs*wage;
+		finalwage = secs*wage;
 		finalwage = finalwage.toFixed(2);
 		document.getElementById("counter").innerHTML= "$"+ finalwage + " made today";
+		
+		//this is the infostuffz v=place
+		
+		var wage2 = wage*100;
+		var dm = 1 / wage / 60;
+		//noods = (finalwage / .13) * (380 / 2000);
+		noods = finalwage * 13;
+		noods = noods.toFixed(0);
+		document.getElementById("infostuffz").innerHTML= '<ul><li>what are your wage stats?</li><li>cents per second: '+wage2.toFixed(4)+'</li><li>it takes you '+dm.toFixed(4)+' minutes to earna dollar</li><li>you are capable of buying '+noods+' packages of ramen</li></ul>';
+
 
 	}
 	</script>
@@ -302,7 +310,6 @@ freedom
 				how much have you made today?
 			</p>
 			<p id="infostuffz">
-			infostuffz
 			</p>
 		</div>
 		
