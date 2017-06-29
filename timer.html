@@ -160,6 +160,7 @@
 		}
 		#infostuffz{
 			background: url(img/black-linen-2.jpg);
+			text-align:left;
 		}
 		.blurb2{
 		position:relative;
@@ -228,24 +229,24 @@
 		}
 	}
 	
-	function freedom(d,h,m,s){	
+	function freedom(d,h,m,s){
+		m=60-m;
+		s=60-s;	
 		if(h<fiveO){
 			h=17-h-1;
-			m=60-m;
-			s=60-s;
 		}else{
-			h=24-h+17;
+			h=23-h+17;
 		}
 		document.getElementById("timer").innerHTML= h+ " hours " + m + " minutes " + s + " seconds until freedom!";
 	}
 	
-	function lunch(d,h,m,s){	
+	function lunch(d,h,m,s){
+		m=60-m;
+		s=60-s;	
 		if(h<12){
 			h=12-h-1;
-			m=60-m;
-			s=60-s;
 		}else{
-			h=24-h+12;
+			h=23-h+12;
 		}
 		document.getElementById("timer2").innerHTML= h+ " hours " + m + " minutes " + s + " seconds until lunch!";
 	}
