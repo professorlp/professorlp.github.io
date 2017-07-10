@@ -281,7 +281,7 @@
 		var wage2 = wage*100;
 		var dm = 1 / wage / 60;
 		//noods = (finalwage / .13) * (380 / 2000);
-		noods = finalwage * 13;
+		noods = finalwage / .13;
 		noods = noods.toFixed(0);
 		document.getElementById("infostuffz").innerHTML= '<ul><li>what are your wage stats?</li><li>cents per second: '+wage2.toFixed(4)+'</li><li>it takes you '+dm.toFixed(4)+' minutes to earna dollar</li><li>you are capable of buying '+noods+' packages of ramen</li></ul>';
 
