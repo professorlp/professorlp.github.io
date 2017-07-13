@@ -1,0 +1,101 @@
+﻿<html>
+<head>
+
+    <script>
+        function getAnswer(batts, ser, longport, color, attributes) {
+            var cut;
+            switch (color) {
+                case "red":
+                    switch (attributes) {
+                        case "star":
+                            cut = true;
+                            break;
+                        case "LED":
+                        case "both":
+                            cut = batts;
+                            break;
+                        case "neither":
+                            cut = ser;
+                            break;
+                    };
+                    break;
+                case "blue":
+                    switch (attributes) {
+                        case "star":
+                            cut = false;
+                            break;
+                        case "LED":
+                        case "both":
+                            cut = longport;
+                            break;
+                        case "neither":
+                            cut = ser;
+                            break;
+                    };
+                    break;
+                case "both":
+                    switch (attributes) {
+                        case "star":
+                            cut = longport;
+                            break;
+                        case "LED":
+                        case "neither":
+                            cut = ser;
+                            break;
+                        case "both":
+                            cut = false;
+                            break;
+                    };
+                    break;
+                case "neither":
+                    switch (attributes) {
+                        case "neither":
+                        case "star":
+                            cut = true;
+                            break;
+                        case "LED":
+                            cut = false;
+                            break;
+                        case "both":
+                            cut = batts;
+                            break;
+                    };
+                    break;
+            };
+            if (cut)
+            {
+                alert("Cut it!");
+            }
+            else {
+                alert("Don't cut it!")
+            }
+        }
+    </script>
+
+</head>
+<body>
+
+    Hello cheaters. :)
+    <br />
+    <input type="checkbox" name="stateVars" value="true" id="b">More than two batteries?<br>
+    <input type="checkbox" name="stateVars" value="true" id="s">Serial # ends in even #?<br />
+    <input type="checkbox" name="stateVars" value="true" id="p"/>Parallel port?<br />
+    <br />
+    <br />
+    Color : <select id="color">
+        <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="both">Red and Blue</option>
+                <option value="neither">Neither</option>
+    </select>
+    <br />
+    Attributes : <select id="attr">
+        <option value="star">Star</option>
+        <option value="LED">Light</option>
+        <option value="both">Star and Light</option>
+        <option value="neither">Neither</option>
+    </select>
+    <button onclick="getAnswer(b.checked, s.checked, p.checked, color.value, attr.value)">Cheat for me!</button>
+</body>
+</html>
+
